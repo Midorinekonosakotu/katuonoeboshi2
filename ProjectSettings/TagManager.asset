@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - LHit
+  - RHit
+  - Fish100
+  - Fish10
   layers:
   - Default
   - TransparentFX
