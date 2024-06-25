@@ -8,6 +8,9 @@ TagManager:
   - RHit
   - Fish100
   - Fish10
+  - Wave
+  - Rock
+  - Jellyfish
   layers:
   - Default
   - TransparentFX

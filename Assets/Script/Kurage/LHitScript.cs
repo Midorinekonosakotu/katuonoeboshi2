@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class LHitScript : MonoBehaviour
 {
-    [SerializeField] private float HitMove;     //ˆÚ“®‘¬“x‚ğİ’è
-    private float HitPos;   //Œ»İ’n‚ğ•Û‘¶
+    public KurageBody kurageBody; 
+    [SerializeField] private float HitMove;     //ï¿½Ú“ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½İ’ï¿½
+    private float HitPos;   //ï¿½ï¿½ï¿½İ’nï¿½ï¿½Û‘ï¿½
 
 
     // Start is called before the first frame update
@@ -17,15 +18,27 @@ public class LHitScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HitPos = transform.position.y;      //Œ»İ’n‚ğ‘ã“ü
+        HitPos = transform.position.y;      //ï¿½ï¿½ï¿½İ’nï¿½ï¿½ï¿½ï¿½
 
-        if (Input.GetKey(KeyCode.W) && HitPos < 1.2)    //WESƒL[‚ª‰Ÿ‚³‚ê‚é‚Æã‰º‚·‚é
+        if (Input.GetKey(KeyCode.W) && HitPos < 1.2)    //Wï¿½ESï¿½Lï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æã‰ºï¿½ï¿½ï¿½ï¿½
         {
             transform.position += new Vector3(0, HitMove);
         }
         else if (Input.GetKey(KeyCode.S) && HitPos > -4.5)
         { 
             transform.position -= new Vector3(0, HitMove);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col){
+        if(col.gameObject.CompareTag("Rock")){
+            kurageBody.CollidedRock();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D col){
+        if(col.gameObject.CompareTag("Rock")){
+            kurageBody.ExitedRock();
         }
     }
 }

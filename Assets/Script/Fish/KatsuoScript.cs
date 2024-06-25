@@ -6,10 +6,10 @@ using UnityEngine;
 
 public class KatsuoScript : MonoBehaviour
 {
-    [SerializeField] private float KatsuoSpeed;     //ˆÚ“®‘¬“x
-    private float KatsuoPosX;   //Œ»İ‚ÌXÀ•W
-    private int LHit = 0;   //¶Gè‚ª“–‚½‚Á‚Ä‚¢‚é‚©
-    private int RHit = 0;   //‰EGè‚ª“–‚½‚Á‚Ä‚¢‚é‚©
+    [SerializeField] private float KatsuoSpeed;     //ï¿½Ú“ï¿½ï¿½ï¿½ï¿½x
+    private float KatsuoPosX;   //ï¿½ï¿½ï¿½İ‚ï¿½Xï¿½ï¿½ï¿½W
+    private int LHit = 0;   //ï¿½ï¿½ï¿½Gï¿½è‚ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½é‚©
+    private int RHit = 0;   //ï¿½Eï¿½Gï¿½è‚ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½é‚©
     private int Movie = 0;
     SpriteRenderer col;
     PolygonCollider2D KatsuoColl;
@@ -23,25 +23,25 @@ public class KatsuoScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        KatsuoPosX = transform.position.x;  //Œ»İ‚ÌXÀ•W
+        KatsuoPosX = transform.position.x;  //ï¿½ï¿½ï¿½İ‚ï¿½Xï¿½ï¿½ï¿½W
 
-        if ((LHit == 0 || RHit == 0) && Movie == 0)     //ƒNƒ‰ƒQ‚ÉG‚ê‚Ä‚¢‚È‚¯‚ê‚Îi‚Ş
+        if ((LHit == 0 || RHit == 0) && Movie == 0)     //ï¿½Nï¿½ï¿½ï¿½Qï¿½ÉGï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½ï¿½Îiï¿½ï¿½
         {
             transform.position += new Vector3(KatsuoSpeed, 0);
 
-            if (KatsuoPosX > 10)   //‰æ–ÊŠO‚Éo‚½‚çƒIƒuƒWƒFƒNƒg‚ğÁ‹‚·‚é
+            if (KatsuoPosX > 10)   //ï¿½ï¿½ÊŠOï¿½Éoï¿½ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             {
                 Destroy(gameObject);
             }
         }
-        else if (LHit == 1 && RHit == 1)     //‚Ç‚¿‚ç‚ÌGè‚à“–‚½‚Á‚Ä‚¢‚é‚Æ‚«
+        else if (LHit == 1 && RHit == 1)     //ï¿½Ç‚ï¿½ï¿½ï¿½ÌGï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Æ‚ï¿½
         {
             Movie = 1;
-            StartCoroutine(Blink());        //“_–Å‚Ìˆ—i‰º‚ÌBlink‚ğQÆj
+            StartCoroutine(Blink());        //ï¿½_ï¿½Å‚Ìï¿½ï¿½ï¿½ï¿½iï¿½ï¿½ï¿½ï¿½Blinkï¿½ï¿½ï¿½Qï¿½Æj
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) //@Gè‚ª“–‚½‚Á‚Ä‚¢‚é‚©‚Ì”»’è
+    private void OnTriggerEnter2D(Collider2D collision) //ï¿½@ï¿½Gï¿½è‚ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½é‚©ï¿½Ì”ï¿½ï¿½ï¿½
     {
         if (collision.CompareTag("LHit"))
         {
@@ -53,7 +53,7 @@ public class KatsuoScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)@//Gè‚ª—£‚ê‚½‚Ì”»’è
+    private void OnTriggerExit2D(Collider2D collision) //ï¿½Gï¿½è‚ªï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½Ì”ï¿½ï¿½ï¿½
     {
         if (collision.CompareTag("LHit"))
         {
@@ -66,16 +66,16 @@ public class KatsuoScript : MonoBehaviour
     }
 
    
-    private IEnumerator Blink()     //“_–Å‚Ìˆ—
+    private IEnumerator Blink()     //ï¿½_ï¿½Å‚Ìï¿½ï¿½ï¿½
     {
-        KatsuoColl = gameObject.GetComponent<PolygonCollider2D>();  //“–‚½‚è”»’è‚ğÁ‹
+        KatsuoColl = gameObject.GetComponent<PolygonCollider2D>();  //ï¿½ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         KatsuoColl.enabled = false;
         for (int count = 0;  count < 2; count++) 
         { 
 
-            col.color = new(col.color.r, col.color.g, col.color.b, 0.5f);   //“§–¾“x‚ğ‚O‚É‚·‚é
+            col.color = new(col.color.r, col.color.g, col.color.b, 0.5f);   //ï¿½ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½Oï¿½É‚ï¿½ï¿½ï¿½
             yield return new WaitForSeconds(0.1f);
-            col.color = new(col.color.r, col.color.g, col.color.b, 1.0f); //“§–¾“x‚ğ255‚É‚·‚é
+            col.color = new(col.color.r, col.color.g, col.color.b, 1.0f); //ï¿½ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½255ï¿½É‚ï¿½ï¿½ï¿½
             yield return new WaitForSeconds(0.1f);
         }
         Destroy(gameObject);

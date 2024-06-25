@@ -6,52 +6,52 @@ using UnityEngine;
 
 public class FishSpawnerScript : MonoBehaviour
 {
-    [SerializeField] float KatsuoTime;  //ƒJƒcƒI‚ÌoŒ»ŠÔİ’è
-    private float Katsuocount;      //oŒ»‚Ü‚Å‚Ìc‚èŠÔƒJƒEƒ“ƒg
-    private float fishHight;    //‹›‚Ì‚‚³
-    public GameObject Katsuo;   //ƒJƒcƒI‚ÌƒIƒuƒWƒFƒNƒgw’è
-    [SerializeField] float FishTime;@//‹›‚ÌoŒ»ŠÔİ’è
-    private float Fishcount;    //oŒ»‚Ü‚Å‚Ìc‚èŠÔƒJƒEƒ“ƒg
-    private int Fishnum;    //oŒ»‚·‚é‹›‚Ìí—Ş‚Ì”»•Ê
-    public GameObject fish1;    //‹›1‚ÌƒIƒuƒWƒFƒNƒgw’è
-    public GameObject fish2;    //‹›2‚ÌƒIƒuƒWƒFƒNƒgw’è
-    public GameObject fish3;    //‹›3‚ÌƒIƒuƒWƒFƒNƒgw’è
+    [SerializeField] float KatsuoTime;  //ï¿½Jï¿½cï¿½Iï¿½Ìoï¿½ï¿½ï¿½ï¿½ï¿½Ôİ’ï¿½
+    private float Katsuocount;      //ï¿½oï¿½ï¿½ï¿½Ü‚Å‚Ìcï¿½èï¿½ÔƒJï¿½Eï¿½ï¿½ï¿½g
+    private float fishHight;    //ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½
+    public GameObject Katsuo;   //ï¿½Jï¿½cï¿½Iï¿½ÌƒIï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½wï¿½ï¿½
+    [SerializeField] float FishTime; //ï¿½ï¿½ï¿½Ìoï¿½ï¿½ï¿½ï¿½ï¿½Ôİ’ï¿½
+    private float Fishcount;    //ï¿½oï¿½ï¿½ï¿½Ü‚Å‚Ìcï¿½èï¿½ÔƒJï¿½Eï¿½ï¿½ï¿½g
+    private int Fishnum;    //ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½é‹›ï¿½Ìï¿½Ş‚Ì”ï¿½ï¿½ï¿½
+    public GameObject fish1;    //ï¿½ï¿½1ï¿½ÌƒIï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½wï¿½ï¿½
+    public GameObject fish2;    //ï¿½ï¿½2ï¿½ÌƒIï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½wï¿½ï¿½
+    public GameObject fish3;    //ï¿½ï¿½3ï¿½ÌƒIï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½wï¿½ï¿½
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Katsuocount = KatsuoTime;   //oŒ»ŠÔ‚ğ‘ã“ü
+        Katsuocount = KatsuoTime;   //ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½Ô‚ï¿½ï¿½ï¿½
         Fishcount = FishTime;       
     }
 
     // Update is called once per frame
     void Update()
     {
-        Katsuocount -= Time.deltaTime;  //oŒ»‚Ü‚Å‚ÌŠÔ‚ğƒJƒEƒ“ƒg
+        Katsuocount -= Time.deltaTime;  //ï¿½oï¿½ï¿½ï¿½Ü‚Å‚Ìï¿½ï¿½Ô‚ï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½g
         Fishcount -= Time.deltaTime;
 
-        if(Fishcount < 0)   //ƒJƒEƒ“ƒg‚ª‚O‚É‚È‚é‚Æ‹›‚ªoŒ»
+        if(Fishcount < 0)   //ï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Oï¿½É‚È‚ï¿½Æ‹ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½
         {
-            fishHight = Random.Range(-3.5f, -0.5f);     //‚‚³‚ğƒ‰ƒ“ƒ_ƒ€‚ÉŒˆ’è
-            Fishnum = Random.Range(1, 4);   //‹›‚Ìí—Ş‚ğƒ‰ƒ“ƒ_ƒ€‚ÉŒˆ’è
-            if(Fishnum == 1)    //‹›1‚ğo‚·
+            fishHight = Random.Range(-3.5f, -0.5f);     //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ÉŒï¿½ï¿½ï¿½
+            Fishnum = Random.Range(1, 4);   //ï¿½ï¿½ï¿½Ìï¿½Ş‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ÉŒï¿½ï¿½ï¿½
+            if(Fishnum == 1)    //ï¿½ï¿½1ï¿½ï¿½ï¿½oï¿½ï¿½
             {
                 Instantiate(fish1, new Vector2(-10, fishHight),Quaternion.identity);
                 Fishcount = FishTime;
             }
-            else if (Fishnum == 2)      //‹›2‚ğo‚·
+            else if (Fishnum == 2)      //ï¿½ï¿½2ï¿½ï¿½ï¿½oï¿½ï¿½
             {
                 Instantiate(fish2, new Vector2(-10, fishHight), Quaternion.identity);
                 Fishcount = FishTime;
             }
-            else if (Fishnum == 3)      //‹›3‚ğo‚·
+            else if (Fishnum == 3)      //ï¿½ï¿½3ï¿½ï¿½ï¿½oï¿½ï¿½
             {
                 Instantiate(fish3, new Vector2(-10, fishHight), Quaternion.identity);
                 Fishcount = FishTime;
             }
         }
-        if(Katsuocount < 0)     //ƒJƒEƒ“ƒg‚ª‚O‚É‚È‚é‚ÆƒJƒcƒI‚ªoŒ»
+        if(Katsuocount < 0)     //ï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Oï¿½É‚È‚ï¿½ÆƒJï¿½cï¿½Iï¿½ï¿½ï¿½oï¿½ï¿½
         {
             fishHight = Random.Range(-3.5f, -0.5f);
             Instantiate(Katsuo, new Vector2(-10, fishHight), Quaternion.identity);
