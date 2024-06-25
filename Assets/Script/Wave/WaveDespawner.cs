@@ -6,7 +6,7 @@ public class WaveDespawner : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D col){
         if(col.gameObject.CompareTag("Wave")){
-            Debug.Log("DESTROYING WAVE");
+            //Debug.Log("DESTROYING WAVE");
             Destroy(col.gameObject);
         }
     }

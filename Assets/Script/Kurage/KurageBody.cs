@@ -34,7 +34,7 @@ public class KurageBody : MonoBehaviour
 
 
     public void CollidedRock(){
-        Debug.Log("COLLIDING ROCK");
+        //Debug.Log("COLLIDING ROCK");
         //moveSpeed = slowSpeed;
 
         // IF PUSHED SPACE
@@ -51,7 +51,7 @@ public class KurageBody : MonoBehaviour
     }
 
     public void ExitedRock(){
-        Debug.Log("EXITING ROCK");
+        //Debug.Log("EXITING ROCK");
         //moveSpeed = defaultSpeed;
         collidingRock = false;
         rockManager.PauseOrResume(false);
@@ -60,7 +60,7 @@ public class KurageBody : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col){
         if(col.gameObject.CompareTag("Wave")){
-            Debug.Log("COLLIDING WAVE");
+            //Debug.Log("COLLIDING WAVE");
             collidingWave = true;
             wave = col.gameObject;
             MoveFaster();

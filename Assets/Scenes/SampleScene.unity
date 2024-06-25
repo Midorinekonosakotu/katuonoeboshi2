@@ -230,6 +230,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 3.47
       objectReference: {fileID: 0}
+    - target: {fileID: 4711793461066235989, guid: 40a67412023cb4555a842504a5910a43, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.67
+      objectReference: {fileID: 0}
     - target: {fileID: 4947480959043539516, guid: 40a67412023cb4555a842504a5910a43, type: 3}
       propertyPath: m_Name
       value: RockManager
@@ -273,6 +277,14 @@ PrefabInstance:
     - target: {fileID: 5536935175548982774, guid: 40a67412023cb4555a842504a5910a43, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006984896681121599, guid: 40a67412023cb4555a842504a5910a43, type: 3}
+      propertyPath: maxSpawnTime
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006984896681121599, guid: 40a67412023cb4555a842504a5910a43, type: 3}
+      propertyPath: minSpawnTime
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

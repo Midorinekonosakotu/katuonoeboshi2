@@ -32,6 +32,8 @@ public class RockManager : MonoBehaviour
                 StartSpawn();
                 waveSpawner.SpawnWave();
                 obstacleTimer = 0f;
+                obstacleTime = Random.Range(10,20);
+                Debug.Log("Next wave spawn: " + obstacleTime);
             }
         }
     }
@@ -39,13 +41,13 @@ public class RockManager : MonoBehaviour
 
     public void AddRock(GameObject rock){
         rocks.Add(rock);
-        Debug.Log("ROCK ADDED TO LIST");
+        //Debug.Log("ROCK ADDED TO LIST");
     }
 
     public void RemoveRock(GameObject rock){
         rocks.Remove(rock);
         Destroy(rock);
-        Debug.Log("ROCK REMOVED FROM LIST");
+        //Debug.Log("ROCK REMOVED FROM LIST");
     }
 
 
@@ -76,13 +78,13 @@ public class RockManager : MonoBehaviour
 
 
     public void StartSpawn(){
-        Debug.Log("STARTED SPAWNING ROCKS");
+        //Debug.Log("STARTED SPAWNING ROCKS");
         rockSpawner.nextSpawnTime = 0;
         rockSpawner.spawningRocks = true;
     }
 
     public void StopSpawn(){
-        Debug.Log("STOPPED SPAWNING ROCKS");
+        //Debug.Log("STOPPED SPAWNING ROCKS");
         rockSpawner.spawningRocks = false;
         obstacleTimer = 0f;
     }
