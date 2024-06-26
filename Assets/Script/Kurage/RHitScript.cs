@@ -6,6 +6,7 @@ using static UnityEngine.UI.ContentSizeFitter;
 public class RHitScript : MonoBehaviour
 {
     public KurageBody kurageBody;
+    public ScoreManager scoreManager;
     [SerializeField] private float HitMove;     //�ړ����x��ݒ�
     private float HitPos;   //���ݒn��ۑ�
 
@@ -34,19 +35,15 @@ public class RHitScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        ScoreManager rHit;
-        GameObject obj = GameObject.Find("ScoreManager");
-        rHit = obj.GetComponent<ScoreManager>();
-
         if (col.gameObject.tag == "Fish10") // Fish10タグのついているオブジェクトに触れたとき
         {
             Debug.Log("RFishOK");
-            kurageBody.GetComponent<ScoreManager>().AddScore10();
+            scoreManager.AddScore10();
         }
 
-        else if (rHit.KatsuoHit == true)
+        else if (col.gameObject.GetComponent<KatsuoScript>().canAddScore)
         {
-            kurageBody.GetComponent<ScoreManager>().AddScore100();
+            scoreManager.AddScore100();
         }
 
         if (col.gameObject.CompareTag("Rock")){

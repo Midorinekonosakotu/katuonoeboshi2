@@ -11,6 +11,8 @@ public class KatsuoScript : MonoBehaviour
     public int LHit = 0;   //���G�肪�������Ă��邩
     public int RHit = 0;   //�E�G�肪�������Ă��邩
     private int Movie = 0;
+    public bool scoreAdded = false;
+    public bool canAddScore = false;
     SpriteRenderer col;
     PolygonCollider2D KatsuoColl;
 
@@ -36,6 +38,7 @@ public class KatsuoScript : MonoBehaviour
         }
         else if (LHit == 1 && RHit == 1)     //�ǂ���̐G����������Ă���Ƃ�
         {
+            canAddScore = true;
             Movie = 1;
             StartCoroutine(Blink());        //�_�ł̏����i����Blink���Q�Ɓj
         }
@@ -43,18 +46,12 @@ public class KatsuoScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) //�@�G�肪�������Ă��邩�̔���
     {
-        ScoreManager katsuoHit;
-        GameObject obj = GameObject.Find("ScoreManager");
-        katsuoHit = obj.GetComponent<ScoreManager>();
-
         if (collision.CompareTag("LHit"))
         {
-            katsuoHit.LHit = true;
             LHit = 1;
         }
         if (collision.CompareTag("RHit"))
         {
-            katsuoHit.RHit = true;
             RHit = 1;
         }
     }

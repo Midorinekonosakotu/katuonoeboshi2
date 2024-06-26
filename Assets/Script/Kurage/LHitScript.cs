@@ -6,6 +6,7 @@ using UnityEngine;
 public class LHitScript : MonoBehaviour
 {
     public KurageBody kurageBody; 
+    public ScoreManager scoreManager;
     [SerializeField] private float HitMove;     //�ړ����x��ݒ�
     private float HitPos;   //���ݒn��ۑ�
 
@@ -33,19 +34,15 @@ public class LHitScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        ScoreManager lHit;
-        GameObject obj = GameObject.Find("ScoreManager");
-        lHit = obj.GetComponent<ScoreManager>();
-
         if (col.gameObject.CompareTag("Fish10")) // Fish10タグのついているオブジェクトに触れたとき
         {
             Debug.Log("LFishOK");
-            kurageBody.GetComponent<ScoreManager>().AddScore10();
+            scoreManager.AddScore10();
         }
 
-        else if (lHit.KatsuoHit == true)
+        else if (col.gameObject.GetComponent<KatsuoScript>().canAddScore)
         {
-            kurageBody.GetComponent<ScoreManager>().AddScore100();
+            scoreManager.AddScore100();
         }
 
         if (col.gameObject.CompareTag("Rock")){
