@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LHitScript : MonoBehaviour
@@ -30,8 +31,24 @@ public class LHitScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D col){
-        if(col.gameObject.CompareTag("Rock")){
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        ScoreManager lHit;
+        GameObject obj = GameObject.Find("ScoreManager");
+        lHit = obj.GetComponent<ScoreManager>();
+
+        if (col.gameObject.CompareTag("Fish10")) // Fish10タグのついているオブジェクトに触れたとき
+        {
+            Debug.Log("LFishOK");
+            kurageBody.GetComponent<ScoreManager>().AddScore10();
+        }
+
+        else if (lHit.KatsuoHit == true)
+        {
+            kurageBody.GetComponent<ScoreManager>().AddScore100();
+        }
+
+        if (col.gameObject.CompareTag("Rock")){
             kurageBody.CollidedRock();
         }
     }

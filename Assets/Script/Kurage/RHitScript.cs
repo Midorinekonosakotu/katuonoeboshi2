@@ -32,8 +32,24 @@ public class RHitScript : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D col){
-        if(col.gameObject.CompareTag("Rock")){
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        ScoreManager rHit;
+        GameObject obj = GameObject.Find("ScoreManager");
+        rHit = obj.GetComponent<ScoreManager>();
+
+        if (col.gameObject.tag == "Fish10") // Fish10タグのついているオブジェクトに触れたとき
+        {
+            Debug.Log("RFishOK");
+            kurageBody.GetComponent<ScoreManager>().AddScore10();
+        }
+
+        else if (rHit.KatsuoHit == true)
+        {
+            kurageBody.GetComponent<ScoreManager>().AddScore100();
+        }
+
+        if (col.gameObject.CompareTag("Rock")){
             kurageBody.CollidedRock();
         }
     }

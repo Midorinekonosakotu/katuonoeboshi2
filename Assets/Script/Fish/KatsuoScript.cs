@@ -8,8 +8,8 @@ public class KatsuoScript : MonoBehaviour
 {
     [SerializeField] private float KatsuoSpeed;     //�ړ����x
     private float KatsuoPosX;   //���݂�X���W
-    private int LHit = 0;   //���G�肪�������Ă��邩
-    private int RHit = 0;   //�E�G�肪�������Ă��邩
+    public int LHit = 0;   //���G�肪�������Ă��邩
+    public int RHit = 0;   //�E�G�肪�������Ă��邩
     private int Movie = 0;
     SpriteRenderer col;
     PolygonCollider2D KatsuoColl;
@@ -43,12 +43,18 @@ public class KatsuoScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) //�@�G�肪�������Ă��邩�̔���
     {
+        ScoreManager katsuoHit;
+        GameObject obj = GameObject.Find("ScoreManager");
+        katsuoHit = obj.GetComponent<ScoreManager>();
+
         if (collision.CompareTag("LHit"))
         {
+            katsuoHit.LHit = true;
             LHit = 1;
         }
         if (collision.CompareTag("RHit"))
         {
+            katsuoHit.RHit = true;
             RHit = 1;
         }
     }
