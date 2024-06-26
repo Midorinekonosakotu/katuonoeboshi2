@@ -428,6 +428,7 @@ GameObject:
   - component: {fileID: 409400914}
   - component: {fileID: 409400916}
   - component: {fileID: 409400915}
+  - component: {fileID: 409400917}
   m_Layer: 5
   m_Name: ScoreLabel
   m_TagString: Untagged
@@ -551,6 +552,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409400913}
   m_CullTransparentMesh: 1
+--- !u!114 &409400917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409400913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4daf2f1496c13a648bcc4d9d6453a023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  scoreText: {fileID: 409400915}
+  LHit: 0
+  RHit: 0
+  KatsuoHit: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,55 +1193,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.025, y: 1.3868849}
   m_EdgeRadius: 0
---- !u!1 &1799963898
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1799963900}
-  - component: {fileID: 1799963899}
-  m_Layer: 0
-  m_Name: ScoreManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1799963899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799963898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4daf2f1496c13a648bcc4d9d6453a023, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 0
-  scoreText: {fileID: 409400915}
-  LHit: 0
-  RHit: 0
-  KatsuoHit: 0
---- !u!4 &1799963900
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799963898}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1812226711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,6 +1293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kurageBody: {fileID: 1646683532}
+  scoreManager: {fileID: 409400917}
   HitMove: 0.009
 --- !u!50 &1812226716
 Rigidbody2D:
@@ -1688,6 +1658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kurageBody: {fileID: 1646683532}
+  scoreManager: {fileID: 409400917}
   HitMove: 0.009
 --- !u!50 &2077086179
 Rigidbody2D:
@@ -1792,4 +1763,3 @@ SceneRoots:
   - {fileID: 329843803}
   - {fileID: 1861551350}
   - {fileID: 1867027229}
-  - {fileID: 1799963900}
