@@ -13,7 +13,8 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
     public bool LHit,RHit,KatsuoHit = false;
 
-    double Combo1, Combo2 = 0;      // コンボ時の加算点数を入れる変数
+    double Combo1 = 10;      // コンボ時の加算点数を入れる変数
+    double Combo2 = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -43,9 +44,10 @@ public class ScoreManager : MonoBehaviour
         }
         else if (Fish10 == true)
         {
-            Combo1 = Combo1 + (10 * 1.1);
+            Combo1 = Combo1 + (10 * 0.1);
             score += (int)Combo1;
             Fish100 = false;
+            Combo2 = 100;
         }
     }
 
@@ -60,9 +62,10 @@ public class ScoreManager : MonoBehaviour
         }
         else if (Fish100 == true)
         {
-            Combo2 = Combo2 + (100 * 1.1);
+            Combo2 = Combo2 + (100 * 0.1);
             score += (int)Combo2;
             Fish10 = false;
+            Combo1 = 10;
         }
     }
 }
