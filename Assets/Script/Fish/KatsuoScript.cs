@@ -16,6 +16,7 @@ public class KatsuoScript : MonoBehaviour
     SpriteRenderer col;
     PolygonCollider2D KatsuoColl;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +39,13 @@ public class KatsuoScript : MonoBehaviour
         }
         else if (LHit == 1 && RHit == 1)     //�ǂ���̐G����������Ă���Ƃ�
         {
-            canAddScore = true;
+            if(!scoreAdded && !canAddScore){
+                canAddScore = true;
+            }
+            else if(scoreAdded){
+                KatsuoColl = gameObject.GetComponent<PolygonCollider2D>();  //�����蔻�������
+                KatsuoColl.enabled = false;
+            }
             Movie = 1;
             StartCoroutine(Blink());        //�_�ł̏����i����Blink���Q�Ɓj
         }
@@ -71,11 +78,8 @@ public class KatsuoScript : MonoBehaviour
    
     private IEnumerator Blink()     //�_�ł̏���
     {
-        KatsuoColl = gameObject.GetComponent<PolygonCollider2D>();  //�����蔻�������
-        KatsuoColl.enabled = false;
         for (int count = 0;  count < 2; count++) 
         { 
-
             col.color = new(col.color.r, col.color.g, col.color.b, 0.5f);   //�����x���O�ɂ���
             yield return new WaitForSeconds(0.1f);
             col.color = new(col.color.r, col.color.g, col.color.b, 1.0f); //�����x��255�ɂ���

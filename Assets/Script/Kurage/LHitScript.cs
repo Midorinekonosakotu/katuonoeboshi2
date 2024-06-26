@@ -39,14 +39,18 @@ public class LHitScript : MonoBehaviour
             Debug.Log("LFishOK");
             scoreManager.AddScore10();
         }
-
-        else if (col.gameObject.GetComponent<KatsuoScript>().canAddScore)
-        {
-            scoreManager.AddScore100();
-        }
-
         if (col.gameObject.CompareTag("Rock")){
             kurageBody.CollidedRock();
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D col){
+        if(col.gameObject.CompareTag("Fish100")){
+            if(col.gameObject.GetComponent<KatsuoScript>().canAddScore && !col.gameObject.GetComponent<KatsuoScript>().scoreAdded){
+                Debug.Log("can add");
+                scoreManager.AddScore100();
+                col.gameObject.GetComponent<KatsuoScript>().scoreAdded = true;
+            }
         }
     }
 
