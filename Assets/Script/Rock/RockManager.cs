@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ public class RockManager : MonoBehaviour
 
     public RockSpawner rockSpawner;
     public WaveSpawner waveSpawner;
+    public Animation Warning;
+    AudioSource audioSource;
     public bool rsSpawning {get {return rockSpawner.spawningRocks;}}
     // rock speeds
     public float normalSpeed = 1.5f;
@@ -18,24 +21,39 @@ public class RockManager : MonoBehaviour
     private float obstacleTimer = 0f;
     private bool spawning = true;
     public List<GameObject> rocks = new List<GameObject>();
+    public List<AudioClip> SFXList = new List<AudioClip>();
 
+
+    private void Awake(){
+        audioSource = GetComponent<AudioSource>();
+    }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(!rsSpawning && spawning){
             if(obstacleTimer < obstacleTime){
                 obstacleTimer += Time.deltaTime;
+                if(obstacleTimer >= obstacleTime - 0.5f && !audioSource.isPlaying){
+                    audioSource.clip = SFXList[0];
+                    audioSource.Play();
+                }
             }
             else{
-                // ADD UI WARNING
-                StartSpawn();
-                waveSpawner.SpawnWave();
-                obstacleTimer = 0f;
-                obstacleTime = Random.Range(10,20);
-                Debug.Log("Next wave spawn: " + obstacleTime);
+                Warning.Play();
             }
         }
+    }
+
+    public void SpawnWave(){
+        StartSpawn();
+        waveSpawner.SpawnWave();
+        obstacleTimer = 0f;
+        obstacleTime = Random.Range(10,20);
+        audioSource.Stop();
+        audioSource.clip = SFXList[1];
+        audioSource.Play();
+        Debug.Log("Next wave spawn: " + obstacleTime);
     }
 
 
