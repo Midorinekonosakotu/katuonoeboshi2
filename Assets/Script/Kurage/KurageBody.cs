@@ -39,6 +39,11 @@ public class KurageBody : MonoBehaviour
 
         // IF PUSHED SPACE
         collidingRock = true;
+        //GrabRock();
+    }
+
+
+    public void GrabRock(){
         rockManager.PauseOrResume(true);
         collidingWave = false;
 
