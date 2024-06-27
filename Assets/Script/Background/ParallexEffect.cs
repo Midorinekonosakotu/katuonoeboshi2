@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class ParallexEffect : MonoBehaviour
 {
-    public float startPos;
-    private Vector3 dummyPos;
-    public float spriteLength;
+    private float spriteLength;
     public float parallexAmount;
     public float parallexAmountNormal;
     public float parallexAmountFast;
@@ -16,8 +14,6 @@ public class ParallexEffect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //startPos = transform.position.x;
-        dummyPos = transform.position;
         spriteLength = GetComponent<SpriteRenderer>().bounds.size.x;
         parallexAmount = parallexAmountNormal;
     }
