@@ -187,7 +187,7 @@ MonoBehaviour:
   spriteLength: 0
   parallexAmount: 0
   parallexAmountNormal: 0.8
-  parallexAmountFast: 0
+  parallexAmountFast: 1.6
   moving: 1
 --- !u!1 &4975043016539867195
 GameObject:
@@ -292,7 +292,7 @@ MonoBehaviour:
   spriteLength: 0
   parallexAmount: 0
   parallexAmountNormal: 0.4
-  parallexAmountFast: 0
+  parallexAmountFast: 0.8
   moving: 1
 --- !u!1 &5970086779016116987
 GameObject:
@@ -303,6 +303,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2335819174166687146}
+  - component: {fileID: 2981100480701552824}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -327,6 +328,20 @@ Transform:
   - {fileID: 767522400073202071}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2981100480701552824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5970086779016116987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192c235b3ee0c4744bc821d0fb2ebbe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgSky: {fileID: 7820485909543946140}
+  bgSea: {fileID: 6056700511922285073}
 --- !u!1 &6265871538585671588
 GameObject:
   m_ObjectHideFlags: 0

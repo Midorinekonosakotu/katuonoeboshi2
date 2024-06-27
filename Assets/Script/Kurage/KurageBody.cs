@@ -5,6 +5,7 @@ using UnityEngine;
 public class KurageBody : MonoBehaviour
 {
     public RockManager rockManager;
+    public Background bg;
     Rigidbody2D rb;
     public bool playerMoving = true;
     private Vector2 moveInput = Vector2.zero;
@@ -26,6 +27,7 @@ public class KurageBody : MonoBehaviour
             }
             else if(Input.GetKeyUp(KeyCode.Space)){
                 rockManager.PauseOrResume(false);
+                bg.PauseOrResume(false);
             }
         }
     }
@@ -34,12 +36,14 @@ public class KurageBody : MonoBehaviour
     public void MoveFaster(){
         Debug.Log("MOVING FASTER");
         rockManager.SetSpeed(2);
+        bg.SetSpeed(2);
     }
 
     // make everything move normal speed
     public void MoveNormal(){
         Debug.Log("MOVING NORMAL SPEED");
         rockManager.SetSpeed(1);
+        bg.SetSpeed(1);
     }
 
 
@@ -55,6 +59,7 @@ public class KurageBody : MonoBehaviour
 
     public void GrabRock(){
         rockManager.PauseOrResume(true);
+        bg.PauseOrResume(true);
         collidingWave = false;
 
         // if colliding wave

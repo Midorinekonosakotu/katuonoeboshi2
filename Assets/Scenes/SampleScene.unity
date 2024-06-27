@@ -254,7 +254,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: 200}
+  m_AnchoredPosition: {x: -200, y: 250}
   m_SizeDelta: {x: 100.5, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &280984352
@@ -334,11 +334,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 906429563584166942, guid: 40a67412023cb4555a842504a5910a43, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.47
+      value: 3.8
       objectReference: {fileID: 0}
     - target: {fileID: 4711793461066235989, guid: 40a67412023cb4555a842504a5910a43, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.67
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 4947101813595094568, guid: 40a67412023cb4555a842504a5910a43, type: 3}
       propertyPath: m_Enabled
@@ -1252,6 +1252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rockManager: {fileID: 180217972}
+  bg: {fileID: 1408454397156385606}
   playerMoving: 1
   collidingRock: 0
   collidingWave: 0
@@ -2183,6 +2184,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f6e1a0e5ded24670bb3a7bac4934cb9, type: 3}
+--- !u!114 &1408454397156385606 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2981100480701552824, guid: 5f6e1a0e5ded24670bb3a7bac4934cb9, type: 3}
+  m_PrefabInstance: {fileID: 1408454397156385605}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192c235b3ee0c4744bc821d0fb2ebbe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
