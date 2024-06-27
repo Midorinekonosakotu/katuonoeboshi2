@@ -8,7 +8,8 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    bool Fish10,Fish100 = false;   // 前回触った魚の判定
+    private bool Fish10on,Fish100on = false;   // 前回触った魚の判定
+    public int ComboCount10, ComboCount100 = 0;
     public int score;   // スコアの値を入れる変数
     [SerializeField] TextMeshProUGUI scoreText;
     public bool LHit,RHit,KatsuoHit = false;
@@ -30,42 +31,48 @@ public class ScoreManager : MonoBehaviour
             KatsuoHit = true;
         }
         // スコア表示
-        scoreText.text = "Score:" + score.ToString() + "/9999";
+        scoreText.text = "Score:" + score.ToString();
     }
 
 
     public void AddScore10()
     {
-        if (Fish10 == false)
+        if (Fish10on == false)
         {
             // スコア加算
             score += 10;
-            Fish10 = true;
+            Fish10on = true;
+            ComboCount10++;
+            ComboCount100 = 0;
         }
-        else if (Fish10 == true)
+        else if (Fish10on == true)
         {
             Combo1 = Combo1 + (10 * 0.1);
             score += (int)Combo1;
-            Fish100 = false;
+            Fish100on = false;
             Combo2 = 100;
+            ComboCount10++;
         }
     }
 
     public void AddScore100()
     {
         Debug.Log("1");
-        if (Fish100 == false)
+        if (Fish100on == false)
         {
             // スコア加算
             score += 100;
-            Fish100 = true;
+            Fish100on = true;
+            ComboCount100++;
+            ComboCount10 = 0;
         }
-        else if (Fish100 == true)
+        else if (Fish100on == true)
         {
             Combo2 = Combo2 + (100 * 0.1);
             score += (int)Combo2;
-            Fish10 = false;
+            Fish10on = false;
             Combo1 = 10;
+            ComboCount100++;
         }
     }
 }
