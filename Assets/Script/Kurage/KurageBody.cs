@@ -19,6 +19,16 @@ public class KurageBody : MonoBehaviour
         rb = GetComponent<Rigidbody2D>(); 
     }
 
+    void Update(){
+        if(collidingRock){
+            if(Input.GetKeyDown(KeyCode.Space)){
+                GrabRock();
+            }
+            else if(Input.GetKeyUp(KeyCode.Space)){
+                rockManager.PauseOrResume(false);
+            }
+        }
+    }
 
     // make everything move faster
     public void MoveFaster(){
@@ -59,7 +69,7 @@ public class KurageBody : MonoBehaviour
         //Debug.Log("EXITING ROCK");
         //moveSpeed = defaultSpeed;
         collidingRock = false;
-        rockManager.PauseOrResume(false);
+        //rockManager.PauseOrResume(false);
     }
 
 
