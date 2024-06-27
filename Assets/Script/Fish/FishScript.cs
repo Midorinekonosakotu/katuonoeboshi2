@@ -50,9 +50,9 @@ public class FishScript : MonoBehaviour
             FishColl = gameObject.GetComponent<PolygonCollider2D>();    //当たり判定を消去
             FishColl.enabled = false;
 
-            col.color = new(col.color.r, col.color.g, col.color.b, 0.5f);   //透明度を０にする
+            col.color = new(col.color.r, col.color.g, col.color.b, 0.5f);   //透明度を0.5する
             yield return new WaitForSeconds(0.1f);
-            col.color = new(col.color.r, col.color.g, col.color.b, 1.0f); //透明度を255にする
+            col.color = new(col.color.r, col.color.g, col.color.b, 1.0f); //透明度を1にする
             yield return new WaitForSeconds(0.1f);
         }
         Destroy(gameObject);

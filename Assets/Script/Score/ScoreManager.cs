@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using TMPro;
@@ -8,18 +8,18 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    bool Fish10,Fish100 = false;   // ‘O‰ñG‚Á‚½‹›‚Ì”»’è
-    public int score;   // ƒXƒRƒA‚Ì’l‚ğ“ü‚ê‚é•Ï”
+    bool Fish10,Fish100 = false;   // å‰å›è§¦ã£ãŸé­šã®åˆ¤å®š
+    public int score;   // ã‚¹ã‚³ã‚¢ã®å€¤ã‚’å…¥ã‚Œã‚‹å¤‰æ•°
     [SerializeField] TextMeshProUGUI scoreText;
     public bool LHit,RHit,KatsuoHit = false;
 
-    double Combo1 = 10;      // ƒRƒ“ƒ{‚Ì‰ÁZ“_”‚ğ“ü‚ê‚é•Ï”
+    double Combo1 = 10;      // ã‚³ãƒ³ãƒœæ™‚ã®åŠ ç®—ç‚¹æ•°ã‚’å…¥ã‚Œã‚‹å¤‰æ•°
     double Combo2 = 100;
 
     // Start is called before the first frame update
     void Start()
     {
-        score = 0;  // ‰ŠúƒXƒRƒA
+        score = 0;  // åˆæœŸã‚¹ã‚³ã‚¢
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class ScoreManager : MonoBehaviour
         {
             KatsuoHit = true;
         }
-        // ƒXƒRƒA•\¦
+        // ã‚¹ã‚³ã‚¢è¡¨ç¤º
         scoreText.text = "Score:" + score.ToString() + "/9999";
     }
 
@@ -38,7 +38,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (Fish10 == false)
         {
-            // ƒXƒRƒA‰ÁZ
+            // ã‚¹ã‚³ã‚¢åŠ ç®—
             score += 10;
             Fish10 = true;
         }
@@ -56,7 +56,7 @@ public class ScoreManager : MonoBehaviour
         Debug.Log("1");
         if (Fish100 == false)
         {
-            // ƒXƒRƒA‰ÁZ
+            // ã‚¹ã‚³ã‚¢åŠ ç®—
             score += 100;
             Fish100 = true;
         }
