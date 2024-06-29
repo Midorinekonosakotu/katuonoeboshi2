@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LTentaclesScript : MonoBehaviour
@@ -16,8 +14,7 @@ public class LTentaclesScript : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         //Œ»İ‚Ìy‚Ì‘å‚«‚³‚ğ•Û‘¶
         LTentaclesY = transform.localScale.y;
@@ -36,5 +33,11 @@ public class LTentaclesScript : MonoBehaviour
 
         //V‚½‚È’l‚ğ‘ã“ü‚·‚é
         transform.localScale = new Vector2(1, LTentaclesY);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }

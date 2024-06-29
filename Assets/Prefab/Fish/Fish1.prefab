@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea3e25f9d8d217045b7ecd5162caa8ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FishSpeed: 0.01
+  FishSpeed: 3
 --- !u!60 &7233392826981419313
 PolygonCollider2D:
   m_ObjectHideFlags: 0

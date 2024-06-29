@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FishScript : MonoBehaviour
@@ -16,6 +15,7 @@ public class FishScript : MonoBehaviour
         col = GetComponent<SpriteRenderer>();       //SpriteRendererの数値を取得
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -23,8 +23,8 @@ public class FishScript : MonoBehaviour
 
         if (fishHit == 0)       //魚が当たっていなければ進む
         {
-            transform.position += new Vector3(FishSpeed, 0);
-            if(fishPosX > 10)
+            transform.position += new Vector3(FishSpeed * Time.deltaTime, 0.0f);
+            if (fishPosX > 10)
                 Destroy(gameObject);
         }
         else if (fishHit == 1)      //魚が当たったら点滅して消える
