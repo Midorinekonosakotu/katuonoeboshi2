@@ -745,7 +745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae087267d6c2ffd4fabd79d8bb1fa3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  point: 40
+  point: 55
   rankingText:
   - {fileID: 1190058618}
   - {fileID: 1043580341}
