@@ -12,9 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/tutorial.unity
     guid: 6e4a995059271e544b7973b03409d577
   - enabled: 1
+    path: Assets/Scenes/Ranking.unity
+    guid: 738f70b90df55db479d0fda03e0127c5
+  - enabled: 1
     path: Assets/Scenes/game.unity
     guid: 5682e97d749288c43bd31a54245a84e8
   - enabled: 1
-    path: Assets/Scenes/end.unity
+    path: Assets/Scenes/end_succes.unity
     guid: d7b149f8438bfa247955a0a42bd73d7d
+  - enabled: 1
+    path: Assets/Scenes/end_failure.unity
+    guid: 5ebbddc3ca172c04f913961296722bb5
   m_configObjects: {}
