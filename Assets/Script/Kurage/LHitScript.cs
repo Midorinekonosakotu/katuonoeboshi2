@@ -1,14 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LHitScript : MonoBehaviour
 {
     public KurageBody kurageBody; 
     public ScoreManager scoreManager;
-    [SerializeField] private float HitMove;     //�ړ����x��ݒ�
-    private float HitPos;   //���ݒn��ۑ�
+    [SerializeField] private float HitMove;     //動く速さ指定
+    private float HitPos;   //現在のy座標把握用
 
 
     // Start is called before the first frame update
@@ -20,15 +17,15 @@ public class LHitScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HitPos = transform.position.y;      //���ݒn����
+        HitPos = transform.position.y;      //現在のy座標
 
-        if (Input.GetKey(KeyCode.W) && HitPos < 1.2)    //W�ES�L�[���������Ə㉺����
+        if (Input.GetKey(KeyCode.W) && HitPos < 1.2)    //Wキーを押されると上がる
         {
-            transform.position += new Vector3(0, HitMove);
+            transform.position += new Vector3(0, HitMove * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.S) && HitPos > -4.5)
-        { 
-            transform.position -= new Vector3(0, HitMove);
+        if (Input.GetKey(KeyCode.S) && HitPos > -4.5)   //Sキーを押されると下がる
+        {
+            transform.position -= new Vector3(0, HitMove * Time.deltaTime);
         }
     }
 

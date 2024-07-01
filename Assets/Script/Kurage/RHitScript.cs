@@ -1,14 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using static UnityEngine.UI.ContentSizeFitter;
+﻿using UnityEngine;
 
 public class RHitScript : MonoBehaviour
 {
     public KurageBody kurageBody;
     public ScoreManager scoreManager;
-    [SerializeField] private float HitMove;     //�ړ����x��ݒ�
-    private float HitPos;   //���ݒn��ۑ�
+    [SerializeField] private float HitMove;     //動く速さ指定
+    private float HitPos;   //現在のy座標把握用
 
 
     // Start is called before the first frame update
@@ -20,15 +17,15 @@ public class RHitScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HitPos = transform.position.y;      //���ݒn����
+        HitPos = transform.position.y;      //現在のy座標
 
-        if (Input.GetKey(KeyCode.UpArrow) && HitPos < 1.2)  //����E�����L�[���������Ə㉺����
+        if (Input.GetKey(KeyCode.UpArrow) && HitPos < 1.2)  //上矢印キーを押されると上がる
         {
-            transform.position += new Vector3(0, HitMove);
+            transform.position += new Vector3(0, HitMove * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.DownArrow) && HitPos > -4.5)
+        if (Input.GetKey(KeyCode.DownArrow) && HitPos > -4.5)   //下矢印キーを押されると下がる
         {
-            transform.position -= new Vector3(0, HitMove);
+            transform.position -= new Vector3(0, HitMove * Time.deltaTime);
         }
     }
 

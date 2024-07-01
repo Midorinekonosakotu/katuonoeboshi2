@@ -99,7 +99,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f60c972b6be9ebb44982c6cb8ef1d77b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KatsuoSpeed: 0.02
+  KatsuoSpeed: 5
+  LHit: 0
+  RHit: 0
+  scoreAdded: 0
+  canAddScore: 0
 --- !u!60 &-2730092859342292593
 PolygonCollider2D:
   m_ObjectHideFlags: 0

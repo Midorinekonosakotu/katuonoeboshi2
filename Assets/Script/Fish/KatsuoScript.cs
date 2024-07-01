@@ -1,15 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Collections;
 using UnityEngine;
 
 public class KatsuoScript : MonoBehaviour
 {
-    [SerializeField] private float KatsuoSpeed;     //�ړ����x
-    private float KatsuoPosX;   //���݂�X���W
-    public int LHit = 0;   //���G�肪�������Ă��邩
-    public int RHit = 0;   //�E�G�肪�������Ă��邩
+    [SerializeField] private float KatsuoSpeed;     //カツオのスピード指定
+    private float KatsuoPosX;   //カツオのX座標
+    public int LHit = 0;   //左触手に当たったか
+    public int RHit = 0;   //右触手に当たったか
     private int Movie = 0;
     public bool scoreAdded = false;
     public bool canAddScore = false;
@@ -26,18 +23,17 @@ public class KatsuoScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        KatsuoPosX = transform.position.x;  //���݂�X���W
+        KatsuoPosX = transform.position.x;  //現在のx座標を取得
 
-        if ((LHit == 0 || RHit == 0) && Movie == 0)     //�N���Q�ɐG��Ă��Ȃ���ΐi��
+        if ((LHit == 0 || RHit == 0) && Movie == 0)     //両方の触手に当たっていないとき
         {
-            transform.position += new Vector3(KatsuoSpeed, 0);
-
-            if (KatsuoPosX > 10)   //��ʊO�ɏo����I�u�W�F�N�g����������
+            transform.position += new Vector3(KatsuoSpeed * Time.deltaTime, 0.0f);
+            if (KatsuoPosX > 10)   //画面外に出たら消去
             {
                 Destroy(gameObject);
             }
         }
-        else if (LHit == 1 && RHit == 1)     //�ǂ���̐G����������Ă���Ƃ�
+        else if (LHit == 1 && RHit == 1)     //両方の触手に当たっているとき
         {
             if(!scoreAdded && !canAddScore){
                 canAddScore = true;
@@ -47,11 +43,11 @@ public class KatsuoScript : MonoBehaviour
                 KatsuoColl.enabled = false;
             }
             Movie = 1;
-            StartCoroutine(Blink());        //�_�ł̏����i����Blink���Q�Ɓj
+            StartCoroutine(Blink());        //点滅して消える
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) //�@�G�肪�������Ă��邩�̔���
+    private void OnTriggerEnter2D(Collider2D collision) //触手が当たったかの判定
     {
         if (collision.CompareTag("LHit"))
         {
@@ -63,7 +59,7 @@ public class KatsuoScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision) //�G�肪���ꂽ���̔���
+    private void OnTriggerExit2D(Collider2D collision) //触手が離れたかの判定
     {
         if (collision.CompareTag("LHit"))
         {
@@ -76,13 +72,13 @@ public class KatsuoScript : MonoBehaviour
     }
 
    
-    private IEnumerator Blink()     //�_�ł̏���
+    private IEnumerator Blink()     //点滅の処理
     {
         for (int count = 0;  count < 2; count++) 
         { 
-            col.color = new(col.color.r, col.color.g, col.color.b, 0.5f);   //�����x���O�ɂ���
+            col.color = new(col.color.r, col.color.g, col.color.b, 0.5f);   //透明度を0.5にする
             yield return new WaitForSeconds(0.1f);
-            col.color = new(col.color.r, col.color.g, col.color.b, 1.0f); //�����x��255�ɂ���
+            col.color = new(col.color.r, col.color.g, col.color.b, 1.0f); //透明度を1にする
             yield return new WaitForSeconds(0.1f);
         }
         Destroy(gameObject);

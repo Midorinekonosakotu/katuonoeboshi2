@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using TMPro;
@@ -8,18 +8,19 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    bool Fish10,Fish100 = false;   // ‘O‰ñG‚Á‚½‹›‚Ì”»’è
-    public int score;   // ƒXƒRƒA‚Ì’l‚ğ“ü‚ê‚é•Ï”
+    private bool Fish10on,Fish100on = false;   // å‰å›è§¦ã£ãŸé­šã®åˆ¤å®š
+    public int ComboCount10, ComboCount100 = 0;
+    public int score;   // ã‚¹ã‚³ã‚¢ã®å€¤ã‚’å…¥ã‚Œã‚‹å¤‰æ•°
     [SerializeField] TextMeshProUGUI scoreText;
     public bool LHit,RHit,KatsuoHit = false;
 
-    double Combo1 = 10;      // ƒRƒ“ƒ{‚Ì‰ÁZ“_”‚ğ“ü‚ê‚é•Ï”
+    double Combo1 = 10;      // ã‚³ãƒ³ãƒœæ™‚ã®åŠ ç®—ç‚¹æ•°ã‚’å…¥ã‚Œã‚‹å¤‰æ•°
     double Combo2 = 100;
 
     // Start is called before the first frame update
     void Start()
     {
-        score = 0;  // ‰ŠúƒXƒRƒA
+        score = 0;  // åˆæœŸã‚¹ã‚³ã‚¢
     }
 
     // Update is called once per frame
@@ -29,43 +30,49 @@ public class ScoreManager : MonoBehaviour
         {
             KatsuoHit = true;
         }
-        // ƒXƒRƒA•\¦
-        scoreText.text = "Score:" + score.ToString() + "/9999";
+        // ã‚¹ã‚³ã‚¢è¡¨ç¤º
+        scoreText.text = "Score:" + score.ToString();
     }
 
 
     public void AddScore10()
     {
-        if (Fish10 == false)
+        if (Fish10on == false)
         {
-            // ƒXƒRƒA‰ÁZ
+            // ã‚¹ã‚³ã‚¢åŠ ç®—
             score += 10;
-            Fish10 = true;
+            Fish10on = true;
+            ComboCount10++;
+            ComboCount100 = 0;
         }
-        else if (Fish10 == true)
+        else if (Fish10on == true)
         {
             Combo1 = Combo1 + (10 * 0.1);
             score += (int)Combo1;
-            Fish100 = false;
+            Fish100on = false;
             Combo2 = 100;
+            ComboCount10++;
         }
     }
 
     public void AddScore100()
     {
         Debug.Log("1");
-        if (Fish100 == false)
+        if (Fish100on == false)
         {
-            // ƒXƒRƒA‰ÁZ
+            // ã‚¹ã‚³ã‚¢åŠ ç®—
             score += 100;
-            Fish100 = true;
+            Fish100on = true;
+            ComboCount100++;
+            ComboCount10 = 0;
         }
-        else if (Fish100 == true)
+        else if (Fish100on == true)
         {
             Combo2 = Combo2 + (100 * 0.1);
             score += (int)Combo2;
-            Fish10 = false;
+            Fish10on = false;
             Combo1 = 10;
+            ComboCount100++;
         }
     }
 }

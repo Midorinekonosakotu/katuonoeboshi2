@@ -1,40 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
+ï»¿using System.Collections;
 using UnityEngine;
 
 public class FishScript : MonoBehaviour
 {
-    [SerializeField] float FishSpeed;  //‹›‚Ì‘¬‚³
-    private int fishHit = 0;    //“–‚½‚Á‚½‚©‚ÌŠm”F
-    private float fishPosX;     //Œ»İ‚ÌxÀ•W
-    private SpriteRenderer col;     //SpriteRenderer‚Ì”’l‚ğˆµ‚¤” 
-    private PolygonCollider2D FishColl;     //PolygonCollider2D‚Ìİ’è‚ğˆµ‚¤” 
+    [SerializeField] float FishSpeed;  //é­šã®é€Ÿã•
+    private int fishHit = 0;    //å½“ãŸã£ãŸã‹ã®ç¢ºèª
+    private float fishPosX;     //ç¾åœ¨ã®xåº§æ¨™
+    private SpriteRenderer col;     //SpriteRendererã®æ•°å€¤ã‚’æ‰±ã†ç®±
+    private PolygonCollider2D FishColl;     //PolygonCollider2Dã®è¨­å®šã‚’æ‰±ã†ç®±
 
     // Start is called before the first frame update
     void Start()
     {
-        col = GetComponent<SpriteRenderer>();       //SpriteRenderer‚Ì”’l‚ğæ“¾
+        col = GetComponent<SpriteRenderer>();       //SpriteRendererã®æ•°å€¤ã‚’å–å¾—
     }
+
 
     // Update is called once per frame
     void Update()
     {
-        fishPosX = transform.position.x;    //Œ»İ‚ÌxÀ•W‚ğ•Û‘¶
+        fishPosX = transform.position.x;    //ç¾åœ¨ã®xåº§æ¨™ã‚’ä¿å­˜
 
-        if (fishHit == 0)       //‹›‚ª“–‚½‚Á‚Ä‚¢‚È‚¯‚ê‚Îi‚Ş
+        if (fishHit == 0)       //é­šãŒå½“ãŸã£ã¦ã„ãªã‘ã‚Œã°é€²ã‚€
         {
-            transform.position += new Vector3(FishSpeed, 0);
-            if(fishPosX > 10)
+            transform.position += new Vector3(FishSpeed * Time.deltaTime, 0.0f);
+            if (fishPosX > 10)
                 Destroy(gameObject);
         }
-        else if (fishHit == 1)      //‹›‚ª“–‚½‚Á‚½‚ç“_–Å‚µ‚ÄÁ‚¦‚é
+        else if (fishHit == 1)      //é­šãŒå½“ãŸã£ãŸã‚‰ç‚¹æ»…ã—ã¦æ¶ˆãˆã‚‹
         {
-            fishHit = 2;    //ŒJ‚è•Ô‚³‚È‚¢‚½‚ß‚É’l•ÏX
-            StartCoroutine(Blink());    //“_–Å‚ÌƒvƒƒOƒ‰ƒ€i‰ºQÆj
+            fishHit = 2;    //ç¹°ã‚Šè¿”ã•ãªã„ãŸã‚ã«å€¤å¤‰æ›´
+            StartCoroutine(Blink());    //ç‚¹æ»…ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒ ï¼ˆä¸‹å‚ç…§ï¼‰
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)     //Gè‚ª“–‚½‚Á‚½‚©‚Ì”»’è
+    private void OnTriggerEnter2D(Collider2D collision)     //è§¦æ‰‹ãŒå½“ãŸã£ãŸã‹ã®åˆ¤å®š
     {
         if (collision.CompareTag("RHit") || collision.CompareTag("LHit"))
         {
@@ -42,17 +42,17 @@ public class FishScript : MonoBehaviour
         }
     }
 
-    private IEnumerator Blink()     //“_–Å‚Ìˆ—
+    private IEnumerator Blink()     //ç‚¹æ»…ã®å‡¦ç†
     {
 
         for (int count = 0; count < 2; count++)
         {
-            FishColl = gameObject.GetComponent<PolygonCollider2D>();    //“–‚½‚è”»’è‚ğÁ‹
+            FishColl = gameObject.GetComponent<PolygonCollider2D>();    //å½“ãŸã‚Šåˆ¤å®šã‚’æ¶ˆå»
             FishColl.enabled = false;
 
-            col.color = new(col.color.r, col.color.g, col.color.b, 0.5f);   //“§–¾“x‚ğ‚O‚É‚·‚é
+            col.color = new(col.color.r, col.color.g, col.color.b, 0.5f);   //é€æ˜åº¦ã‚’0.5ã™ã‚‹
             yield return new WaitForSeconds(0.1f);
-            col.color = new(col.color.r, col.color.g, col.color.b, 1.0f); //“§–¾“x‚ğ255‚É‚·‚é
+            col.color = new(col.color.r, col.color.g, col.color.b, 1.0f); //é€æ˜åº¦ã‚’1ã«ã™ã‚‹
             yield return new WaitForSeconds(0.1f);
         }
         Destroy(gameObject);

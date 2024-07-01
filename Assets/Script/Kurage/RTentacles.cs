@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RTentacles : MonoBehaviour
@@ -16,8 +14,7 @@ public class RTentacles : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         //Œ»İ‚Ìy‚Ì‘å‚«‚³‚ğ•Û‘¶
         RTentaclesY = transform.localScale.y;
@@ -36,5 +33,11 @@ public class RTentacles : MonoBehaviour
 
         //V‚½‚È’l‚ğ‘ã“ü‚·‚é
         transform.localScale = new Vector2(1, RTentaclesY);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+       
     }
 }
