@@ -1,11 +1,11 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class LTentaclesScript : MonoBehaviour
 {
-    //¶Gè‚Ì“®‚­‘¬‚³‚Ì”’lİ’è
+    //å·¦è§¦æ‰‹ã®å‹•ãé€Ÿã•ã®æ•°å€¤è¨­å®š
     [SerializeField] private Vector2 LTentaclesScale;
 
-    //Œ»İ‚Ì¶Gè‚Ì‘å‚«‚³‹L˜^—p
+    //ç¾åœ¨ã®å·¦è§¦æ‰‹ã®å¤§ãã•è¨˜éŒ²ç”¨
     private float LTentaclesY;
 
     // Start is called before the first frame update
@@ -14,30 +14,26 @@ public class LTentaclesScript : MonoBehaviour
         
     }
 
-    private void FixedUpdate()
-    {
-        //Œ»İ‚Ìy‚Ì‘å‚«‚³‚ğ•Û‘¶
-        LTentaclesY = transform.localScale.y;
-
-        //Gè‚ğ‰º‚ÉL‚Î‚·
-        if (Input.GetKey(KeyCode.S) && LTentaclesY < 7.3)
-        {
-            LTentaclesY += LTentaclesScale.y;
-        }
-
-        //Gè‚ğã‚É‚ ‚°‚é
-        if (Input.GetKey(KeyCode.W) && LTentaclesY > 1)
-        {
-            LTentaclesY -= LTentaclesScale.y;
-        }
-
-        //V‚½‚È’l‚ğ‘ã“ü‚·‚é
-        transform.localScale = new Vector2(1, LTentaclesY);
-    }
-
     // Update is called once per frame
     void Update()
     {
+        //ç¾åœ¨ã®yã®å¤§ãã•ã‚’ä¿å­˜
+        LTentaclesY = transform.localScale.y;
+
+        //è§¦æ‰‹ã‚’ä¸‹ã«ä¼¸ã°ã™
+        if (Input.GetKey(KeyCode.S) && LTentaclesY < 7.3)
+        {
+            LTentaclesY += LTentaclesScale.y * Time.deltaTime;
+        }
+
+        //è§¦æ‰‹ã‚’ä¸Šã«ã‚ã’ã‚‹
+        if (Input.GetKey(KeyCode.W) && LTentaclesY > 1)
+        {
+            LTentaclesY -= LTentaclesScale.y * Time.deltaTime;
+        }
+
+        //æ–°ãŸãªå€¤ã‚’ä»£å…¥ã™ã‚‹
+        transform.localScale = new Vector2(1, LTentaclesY);
         
     }
 }

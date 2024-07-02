@@ -936,7 +936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01abc307064468547b55d9a7bb9a77a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RTentaclesScale: {x: 0, y: 0.1}
+  RTentaclesScale: {x: 0, y: 4}
 --- !u!1 &1279333456
 GameObject:
   m_ObjectHideFlags: 0
@@ -1039,7 +1039,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b5a95756a9b704c4b8e5bf969d86f34d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1269,7 +1269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 834244ca96e2e0a44b27064a1c0bfb0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LTentaclesScale: {x: 0, y: 0.1}
+  LTentaclesScale: {x: 0, y: 4}
 --- !u!1 &1646683529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1754,7 +1754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kurageBody: {fileID: 1646683532}
   scoreManager: {fileID: 409400917}
-  HitMove: 4.4
+  HitMove: 3.6
 --- !u!50 &1812226716
 Rigidbody2D:
   serializedVersion: 4
@@ -2198,7 +2198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kurageBody: {fileID: 1646683532}
   scoreManager: {fileID: 409400917}
-  HitMove: 4.4
+  HitMove: 3.6
 --- !u!50 &2077086179
 Rigidbody2D:
   serializedVersion: 4

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class RankingManagerScript : MonoBehaviour
 {
     [SerializeField, Header("数値")] //スコアを入れる箱
-    int point;
+    public int point;
 
     string[] ranking = { "1位", "2位", "3位", "4位", "5位" }; //順位表示用の箱
     int[] rankingValue = new int[5];    //歴代スコア保存の箱
