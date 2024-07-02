@@ -874,8 +874,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JFish: {fileID: 1910162471}
-  counter: 2600
+  counter: 5200
   WaveFlag: 0
+  RockFlag: 0
 --- !u!4 &929964106
 Transform:
   m_ObjectHideFlags: 0

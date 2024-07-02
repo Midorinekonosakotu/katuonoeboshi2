@@ -25,10 +25,12 @@ public class KurageBody : MonoBehaviour
         if(collidingRock){
             if(Input.GetKeyDown(KeyCode.Space)){
                 GrabRock();
+                rangeJFish.RockFlag = true;
             }
             else if(Input.GetKeyUp(KeyCode.Space)){
                 rockManager.PauseOrResume(false);
                 bg.PauseOrResume(false);
+                rangeJFish.RockFlag = false;
             }
         }
     }
