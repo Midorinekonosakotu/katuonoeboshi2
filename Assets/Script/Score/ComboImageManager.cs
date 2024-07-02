@@ -28,7 +28,7 @@ public class ComboImageManager : MonoBehaviour
             image.enabled = true;
             image.sprite = sprite1;
         }
-        else if (comboManager.combo >= 50)
+        else if (comboManager.combo >= 30)
         {
             image.sprite = sprite2;
         }

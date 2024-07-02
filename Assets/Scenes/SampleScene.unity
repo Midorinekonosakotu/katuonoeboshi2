@@ -1378,6 +1378,7 @@ MonoBehaviour:
   playerMoving: 1
   collidingRock: 0
   collidingWave: 0
+  rangeJFish: {fileID: 929964105}
 --- !u!50 &1646683533
 Rigidbody2D:
   serializedVersion: 4

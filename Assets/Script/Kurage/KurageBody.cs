@@ -14,6 +14,7 @@ public class KurageBody : MonoBehaviour
     public bool collidingRock = false;
     public bool collidingWave = false;
     private GameObject wave;
+    public RangeJFish rangeJFish;
 
 
     private void Awake(){
@@ -64,6 +65,7 @@ public class KurageBody : MonoBehaviour
 
         // if colliding wave
         if(wave != null){
+            rangeJFish.WaveFlag = false;
             wave.GetComponent<Wave>().MovePastPlayer();
             MoveNormal();
             wave = null;
@@ -82,6 +84,7 @@ public class KurageBody : MonoBehaviour
         if(col.gameObject.CompareTag("Wave")){
             //Debug.Log("COLLIDING WAVE");
             collidingWave = true;
+            rangeJFish.WaveFlag = true;
             wave = col.gameObject;
             MoveFaster();
         }

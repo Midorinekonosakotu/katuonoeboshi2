@@ -20,15 +20,15 @@ public class RangeJFish : MonoBehaviour
     {
         JFish.position += new Vector3(-move, 0, 0);
 
-        if (Input.GetKey(KeyCode.Space))
-        {
-            WaveFlag = true;
-        }
+        //if (Input.GetKey(KeyCode.Space))
+        //{
+        //    WaveFlag = true;
+        //}
         
-        if(Input.GetKeyUp(KeyCode.Space))
-        {
-            WaveFlag = false;
-        }
+        //if(Input.GetKeyUp(KeyCode.Space))
+        //{
+        //    WaveFlag = false;
+        //}
 
 
         if(WaveFlag == true)
