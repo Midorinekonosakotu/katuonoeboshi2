@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using TMPro;
 using UnityEngine.UI;
 
 public class RankingManagerScript : MonoBehaviour
@@ -7,11 +7,11 @@ public class RankingManagerScript : MonoBehaviour
     [SerializeField, Header("数値")] //スコアを入れる箱
     public int point;
 
-    string[] ranking = { "1位", "2位", "3位", "4位", "5位" }; //順位表示用の箱
+    string[] ranking = { "No.1", "No.2", "No.3", "No.4", "No.5" }; //順位表示用の箱
     int[] rankingValue = new int[5];    //歴代スコア保存の箱
 
     [SerializeField,Header("表示させるテキスト")]
-    Text[] rankingText = new Text[5];   //テキストを表示するための箱
+    TextMeshProUGUI[] rankingText = new TextMeshProUGUI[5];   //テキストを表示するための箱
 
 
     // Start is called before the first frame update
