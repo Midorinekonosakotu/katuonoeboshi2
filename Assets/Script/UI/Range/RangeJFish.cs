@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class RangeJFish : MonoBehaviour
 {
+    ScoreManager scoreManager;
     public RectTransform JFish;
-    private float move = 0.001f;
-    [SerializeField] int counter = 5200;
-    bool countStop = false;
+    private float move = 0.0005f;
+    [SerializeField] int counter = 10400;
+    public bool countStop = false;
     public bool WaveFlag = false;
     public bool RockFlag = false;
+    public bool GoalFlag = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +28,7 @@ public class RangeJFish : MonoBehaviour
         {
             if (countStop == false)
             {
-                move = 0.002f;
+                move = 0.001f;
                 counter -= 2;
             }
         }
@@ -33,7 +36,7 @@ public class RangeJFish : MonoBehaviour
         {
             if (countStop == false)
             {
-                move = 0.001f;
+                move = 0.0005f;
                 counter--;
             }
         }
@@ -50,7 +53,7 @@ public class RangeJFish : MonoBehaviour
 
         if (counter < -1)
         {
-            countStop = true;
+            GoalFlag = true;
             move = 0f;
         }
     }
