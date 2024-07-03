@@ -25,7 +25,8 @@ public class ComboManager : MonoBehaviour
             combo = 0;
             combo = scoreManager.ComboCount10;
         }
-        else if (scoreManager.ComboCount100 > 0)
+
+        if (scoreManager.ComboCount100 > 0)
         {
             combo = 0;
             combo = scoreManager.ComboCount100; // Fish100‚ÌƒRƒ“ƒ{”‚ª‘‚¦‚½‚ç

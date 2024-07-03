@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour
 {
     private bool Fish10on,Fish100on = false;   // 前回触った魚の判定
     public int ComboCount10, ComboCount100 = 0;
-    public static int score;   // スコアの値を入れる変数
+    public int score;   // スコアの値を入れる変数
     [SerializeField] TextMeshProUGUI scoreText;
     public bool LHit,RHit,KatsuoHit = false;
 

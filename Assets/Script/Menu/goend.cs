@@ -6,25 +6,24 @@ using UnityEngine.SceneManagement;
 
 public class goend : MonoBehaviour
 {
-    RangeJFish rangeJFish;
+    GameObject gauge;
+     private float score; 
     // Start is called before the first frame update
     void Start()
    {
-        rangeJFish = GameObject.Find("RangeJFishMove").GetComponent<RangeJFish>();
+        this.gauge = GameObject.Find("gauge");
     }
     // Update is called once per frame  
     void Update()
     {
-        if (rangeJFish.GoalFlag == true)
+        if (this.gauge.GetComponent<Image>().fillAmount ==0)
         {
-            if (ScoreManager.score >= 1000)
+            if (score >= 1000)
             {
-                Debug.Log("Scene1OK");
                 SceneManager.LoadScene("end_succes", LoadSceneMode.Single);
             }
-            else if (ScoreManager.score < 1000)
+            else if (score <= 1000)
             {
-                Debug.Log("Scene2OK");
                 SceneManager.LoadScene("end_failure", LoadSceneMode.Single);
             }
         }
