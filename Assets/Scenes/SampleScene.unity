@@ -823,9 +823,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee57e5bdcc9b29468abc92cd45ba159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KatsuoTime: 5
+  KatsuoTime: 7
   Katsuo: {fileID: 1661225383076067417, guid: 142be199b18944a4bb89948085709585, type: 3}
-  FishTime: 3
+  FishTime: 2
   fish1: {fileID: 491007955887750541, guid: 5552fb1a6cdf66c42ae33b34be6bce4e, type: 3}
   fish2: {fileID: 1123529405690727059, guid: 6bdbeee9e85ff4d4d9ff2432605e8f80, type: 3}
   fish3: {fileID: 6629631443364088048, guid: 95317381110cfcb4089ec8cd7d7ba74c, type: 3}
