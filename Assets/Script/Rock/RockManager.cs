@@ -36,6 +36,7 @@ public class RockManager : MonoBehaviour
                 obstacleTimer += Time.deltaTime;
                 if(obstacleTimer >= obstacleTime - 0.5f && !audioSource.isPlaying){
                     audioSource.clip = SFXList[0];
+                    audioSource.volume = 0.1f;
                     audioSource.Play();
                 }
             }
@@ -52,6 +53,7 @@ public class RockManager : MonoBehaviour
         obstacleTime = Random.Range(10,20);
         audioSource.Stop();
         audioSource.clip = SFXList[1];
+        audioSource.volume = 1f;
         audioSource.Play();
         Debug.Log("Next wave spawn: " + obstacleTime);
     }
