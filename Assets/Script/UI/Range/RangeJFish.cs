@@ -55,6 +55,42 @@ public class RangeJFish : MonoBehaviour
         {
             GoalFlag = true;
             move = 0f;
+
+            GetRanking();
+
+            SetRanking(ScoreManager.score);
         }
+    }
+
+    string[] Ranking = RankingManagerScript.ranking;
+    int[] rankingValue = new int[5];    //歴代スコア保存の箱
+    void GetRanking()
+    {
+        //ランキング呼び出し
+        for (int i = 0; i < Ranking.Length; i++)
+        {
+            rankingValue[i] = PlayerPrefs.GetInt(RankingManagerScript.ranking[i], 0);
+        }
+    }
+
+    void SetRanking(int _value)
+    {
+        //書き込み用
+        for (int i = 0; i < rankingValue.Length; i++)
+        {
+            //取得した値とRankingの値を比較して入れ替え
+            if (_value > rankingValue[i])
+            {
+                var change = rankingValue[i];
+                rankingValue[i] = _value;
+                _value = change;
+            }
+        }
+        //入れ替えた値を保存
+        for (int i = 0; i < Ranking.Length; i++)
+        {
+            PlayerPrefs.SetInt(RankingManagerScript.ranking[i], rankingValue[i]);
+        }
+        PlayerPrefs.Save();
     }
 }
