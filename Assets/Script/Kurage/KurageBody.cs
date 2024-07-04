@@ -33,6 +33,11 @@ public class KurageBody : MonoBehaviour
                 rangeJFish.RockFlag = false;
             }
         }
+        else{
+            rockManager.PauseOrResume(false);
+            bg.PauseOrResume(false);
+            rangeJFish.RockFlag = false;
+        }
     }
 
     // make everything move faster
