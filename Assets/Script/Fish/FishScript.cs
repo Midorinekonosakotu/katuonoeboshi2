@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FishScript : MonoBehaviour
@@ -38,7 +39,10 @@ public class FishScript : MonoBehaviour
     {
         if (collision.CompareTag("RHit") || collision.CompareTag("LHit"))
         {
-            fishHit = 1;
+            if((collision.CompareTag("LHit") && collision.GetComponent<LHitScript>().kurageBody.canCatchFish) || (collision.CompareTag("RHit") && collision.GetComponent<RHitScript>().kurageBody.canCatchFish)){
+                fishHit = 1;
+            }
+            
         }
     }
 

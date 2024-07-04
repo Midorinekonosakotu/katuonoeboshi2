@@ -13,6 +13,7 @@ public class KurageBody : MonoBehaviour
     // public float slowSpeed = 0.5f;
     public bool collidingRock = false;
     public bool collidingWave = false;
+    public bool canCatchFish = true;
     private GameObject wave;
     public RangeJFish rangeJFish;
 
@@ -32,11 +33,13 @@ public class KurageBody : MonoBehaviour
                 bg.PauseOrResume(false);
                 rangeJFish.RockFlag = false;
             }
+             canCatchFish = false;
         }
         else{
             rockManager.PauseOrResume(false);
             bg.PauseOrResume(false);
             rangeJFish.RockFlag = false;
+            canCatchFish = true;
         }
     }
 

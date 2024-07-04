@@ -32,7 +32,7 @@ public class RHitScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Fish10") // Fish10タグのついているオブジェクトに触れたとき
+        if (col.gameObject.tag == "Fish10" && kurageBody.canCatchFish) // Fish10タグのついているオブジェクトに触れたとき
         {
             Debug.Log("RFishOK");
             scoreManager.AddScore10();
@@ -43,7 +43,7 @@ public class RHitScript : MonoBehaviour
     }
 
     private void OnTriggerStay2D(Collider2D col){
-        if(col.gameObject.CompareTag("Fish100")){
+        if(col.gameObject.CompareTag("Fish100") && kurageBody.canCatchFish){
             if(col.gameObject.GetComponent<KatsuoScript>().canAddScore && !col.gameObject.GetComponent<KatsuoScript>().scoreAdded){
                 Debug.Log("can add");
                 scoreManager.AddScore100();

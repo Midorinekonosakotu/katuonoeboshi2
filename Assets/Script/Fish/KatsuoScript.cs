@@ -51,11 +51,15 @@ public class KatsuoScript : MonoBehaviour
     {
         if (collision.CompareTag("LHit"))
         {
-            LHit = 1;
+            if(collision.CompareTag("LHit") && collision.GetComponent<LHitScript>().kurageBody.canCatchFish){
+                LHit = 1;
+            }
         }
         if (collision.CompareTag("RHit"))
         {
-            RHit = 1;
+            if(collision.CompareTag("RHit") && collision.GetComponent<RHitScript>().kurageBody.canCatchFish){
+                RHit = 1;
+            }
         }
     }
 
@@ -63,11 +67,15 @@ public class KatsuoScript : MonoBehaviour
     {
         if (collision.CompareTag("LHit"))
         {
-            LHit = 0;
+            if(collision.CompareTag("LHit") && collision.GetComponent<LHitScript>().kurageBody.canCatchFish){
+                LHit = 0;
+            }
         }
         if (collision.CompareTag("RHit"))
         {
-            RHit = 0;
+            if(collision.CompareTag("RHit") && collision.GetComponent<RHitScript>().kurageBody.canCatchFish){
+                RHit = 0;
+            }
         }
     }
 

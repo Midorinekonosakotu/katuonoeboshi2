@@ -6,6 +6,7 @@ public class LHitScript : MonoBehaviour
     public ScoreManager scoreManager;
     [SerializeField] private float HitMove;     //動く速さ指定
     private float HitPos;   //現在のy座標把握用
+    
 
 
     // Start is called before the first frame update
@@ -31,7 +32,7 @@ public class LHitScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Fish10")) // Fish10タグのついているオブジェクトに触れたとき
+        if (col.gameObject.CompareTag("Fish10") && kurageBody.canCatchFish) // Fish10タグのついているオブジェクトに触れたとき
         {
             Debug.Log("LFishOK");
             scoreManager.AddScore10();
@@ -42,7 +43,7 @@ public class LHitScript : MonoBehaviour
     }
 
     private void OnTriggerStay2D(Collider2D col){
-        if(col.gameObject.CompareTag("Fish100")){
+        if(col.gameObject.CompareTag("Fish100") && kurageBody.canCatchFish){
             if(col.gameObject.GetComponent<KatsuoScript>().canAddScore && !col.gameObject.GetComponent<KatsuoScript>().scoreAdded){
                 Debug.Log("can add");
                 scoreManager.AddScore100();
