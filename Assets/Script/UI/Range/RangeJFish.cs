@@ -7,8 +7,9 @@ public class RangeJFish : MonoBehaviour
 {
     ScoreManager scoreManager;
     public RectTransform JFish;
-    private float move = 0.0005f;
-    [SerializeField] int counter = 10400;
+    private float move;
+    [SerializeField] float counter = 60;
+    private float nowCount;
     public bool countStop = false;
     public bool WaveFlag = false;
     public bool RockFlag = false;
@@ -16,28 +17,26 @@ public class RangeJFish : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        nowCount = counter;
     }
 
     // Update is called once per frame
     void Update()
     {
-        JFish.position += new Vector3(-move, 0, 0);
+        //JFish.position += new Vector3(-move, 0, 0);
 
         if (WaveFlag == true)
         {
             if (countStop == false)
             {
-                move = 0.001f;
-                counter -= 2;
+                move = 1.2f;
             }
         }
         else if (WaveFlag == false)
         {
             if (countStop == false)
             {
-                move = 0.0005f;
-                counter--;
+                move = 1.0f;
             }
         }
 
@@ -51,7 +50,9 @@ public class RangeJFish : MonoBehaviour
             countStop = false;
         }
 
-        if (counter < -1)
+        GameCountDown(move);
+
+        if (nowCount < 0)
         {
             GoalFlag = true;
             move = 0f;
@@ -60,6 +61,17 @@ public class RangeJFish : MonoBehaviour
 
             SetRanking(ScoreManager.score);
         }
+    }
+
+    private void GameCountDown(float _speed)
+    {
+        nowCount -= Time.deltaTime * _speed;
+
+        float gamePercent = nowCount / counter;
+
+        float JFishPos = 2.8f + 5.4f * gamePercent;
+
+        JFish.position = new Vector3(JFishPos, JFish.position.y);
     }
 
     string[] Ranking = RankingManagerScript.ranking;
