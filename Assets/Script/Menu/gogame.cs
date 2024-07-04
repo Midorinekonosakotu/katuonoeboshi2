@@ -18,6 +18,6 @@ public class gogame : MonoBehaviour
     }
     public void SwitchScene()
     {
-        SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("SampleScene");
     }
 }
