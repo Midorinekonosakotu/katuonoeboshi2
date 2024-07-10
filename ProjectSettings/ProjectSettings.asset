@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: KatsuoNoEboshi
+  companyName: Uminomozuku
+  productName: "\u30AB\u30C4\u30AA\u30CE\u30A8\u30DC\u30B7\u307E\u3093\u3077\u304F\u3060\u3057\uFF01"
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
